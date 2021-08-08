@@ -1,30 +1,48 @@
-<!-- ❗️ .vueファイルの中で、<template>タグは、1つの子しか持てません。❗️ -->
+```html
 <template>
-  <div class="counter">{{ count }}</div>
+  <div id="app">
+    <div class="hello-wrold">
+      <img alt="Vue logo" src="./assets/logo.png" />
+      <div class="hello-wrold__message">
+        {{ message }}
+      </div>
+    </div>
+    **<TodoList />**
+  </div>
 </template>
 
 <script>
+**import TodoList from "@/components/TodoList.vue"**
 export default {
-  props: {
-    initialValue: {
-      type: Number,
-      default: 0,
-    },
-  },
+  name: "App",
+  **components: {
+    TodoList
+  },**
   data: function () {
     return {
-      count: this.initialValue,
+      message: "WebExpert Course Vue Template",
     }
   },
+  methods: {},
 }
 </script>
 
-<!-- ❗️ <style scoped>を使うと、CSSのスコープをこの.vueファイルに限定できます! ❗️ -->
-<style scoped>
-.counter {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: lightgreen;
+<style>
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 </style>
+
+<style scoped>
+.hello-wrold {
+  margin-top: 60px;
+  text-align: center;
+}
+
+.hello-wrold .hello-world__message {
+  color: #2c3e50;
+}
+</style>
+```
